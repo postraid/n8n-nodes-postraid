@@ -1,0 +1,221 @@
+[
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Create Post Draft",
+        "value": "create_post_draft",
+        "description": "Save supplied slide copy as an editable carousel with placeholder backgrounds. No AI generation, rendering, scheduling, publishing or credit spending. Reuse requestId only to retry the same draft",
+        "action": "Create Post Draft in Postraid"
+      },
+      {
+        "name": "Get Post",
+        "value": "get_post",
+        "description": "Read a saved content piece owned by your account, with its editor URL. Does not query social provider credentials or publish",
+        "action": "Get Post in Postraid"
+      },
+      {
+        "name": "Get Profile",
+        "value": "get_profile",
+        "description": "Read the signed-in customer's own Postraid account profile. Does not search for or identify other people",
+        "action": "Get Profile in Postraid"
+      },
+      {
+        "name": "List Brands",
+        "value": "list_brands",
+        "description": "List brands in your own Postraid workspace. Team workspaces are not included. Use the returned brand ID for content tools",
+        "action": "List Brands in Postraid"
+      },
+      {
+        "name": "List Posts",
+        "value": "list_posts",
+        "description": "Browse saved content pieces for a brand in your own workspace. These are drafts or library items; reaction=published is a local marker, not independent proof of provider delivery",
+        "action": "List Posts in Postraid"
+      }
+    ],
+    "default": "get_profile"
+  },
+  {
+    "displayName": "This operation changes data or may use account credits. Review the inputs and the product permissions before running this workflow.",
+    "name": "writeNotice",
+    "type": "notice",
+    "default": "",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Confirm Write Operation",
+    "name": "confirmWrite",
+    "type": "boolean",
+    "default": false,
+    "description": "Whether you authorize this workflow to run the selected write operation, including any applicable product credits",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Request Id",
+    "name": "create_post_draft__requestId",
+    "type": "string",
+    "default": "",
+    "required": true,
+    "description": "The request id for this operation",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Title",
+    "name": "create_post_draft__title",
+    "type": "string",
+    "default": "",
+    "required": true,
+    "description": "The title for this operation",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Slides",
+    "name": "create_post_draft__slides",
+    "type": "json",
+    "default": "[]",
+    "required": true,
+    "description": "The slides for this operation",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Additional Fields",
+    "name": "options_create_post_draft",
+    "type": "collection",
+    "placeholder": "Add Field",
+    "default": {},
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "create_post_draft"
+        ]
+      }
+    },
+    "options": [
+      {
+        "displayName": "Brand Id",
+        "name": "brandId",
+        "type": "string",
+        "default": "default",
+        "description": "The brand id for this operation"
+      },
+      {
+        "displayName": "Hashtags",
+        "name": "hashtags",
+        "type": "json",
+        "default": [],
+        "description": "The hashtags for this operation"
+      }
+    ]
+  },
+  {
+    "displayName": "Post Id",
+    "name": "get_post__postId",
+    "type": "string",
+    "default": "",
+    "required": true,
+    "description": "The post id for this operation",
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "get_post"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Additional Fields",
+    "name": "options_list_brands",
+    "type": "collection",
+    "placeholder": "Add Field",
+    "default": {},
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "list_brands"
+        ]
+      }
+    },
+    "options": [
+      {
+        "displayName": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": 0,
+        "description": "The offset for this operation",
+        "typeOptions": {
+          "minValue": 0,
+          "maxValue": 10000,
+          "numberPrecision": 0
+        }
+      }
+    ]
+  },
+  {
+    "displayName": "Additional Fields",
+    "name": "options_list_posts",
+    "type": "collection",
+    "placeholder": "Add Field",
+    "default": {},
+    "displayOptions": {
+      "show": {
+        "operation": [
+          "list_posts"
+        ]
+      }
+    },
+    "options": [
+      {
+        "displayName": "Brand Id",
+        "name": "brandId",
+        "type": "string",
+        "default": "default",
+        "description": "The brand id for this operation"
+      },
+      {
+        "displayName": "Offset",
+        "name": "offset",
+        "type": "number",
+        "default": 0,
+        "description": "The offset for this operation",
+        "typeOptions": {
+          "minValue": 0,
+          "maxValue": 10000,
+          "numberPrecision": 0
+        }
+      }
+    ]
+  }
+]
