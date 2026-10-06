@@ -18,13 +18,13 @@ export class PostraidOAuth2Api implements ICredentialType {
       displayName: "Server URL",
       name: "serverUrl",
       type: "hidden",
-      default: "https://mcp.postraid.com/v1",
+      default: "https://www.postraid.com/v1",
     },
     {
       displayName: "Resource URL",
       name: "resourceUrl",
       type: "hidden",
-      default: "https://mcp.postraid.com/v1",
+      default: "https://www.postraid.com/v1",
     },
   ];
 }

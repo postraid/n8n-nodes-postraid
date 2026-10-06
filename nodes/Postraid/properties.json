@@ -1,28 +1,57 @@
 [
   {
+    "displayName": "Resource",
+    "name": "resource",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Account",
+        "value": "account"
+      },
+      {
+        "name": "Brand",
+        "value": "brands"
+      },
+      {
+        "name": "Post",
+        "value": "posts"
+      },
+      {
+        "name": "Post Drafts",
+        "value": "post-drafts"
+      }
+    ],
+    "default": "account"
+  },
+  {
     "displayName": "Operation",
     "name": "operation",
     "type": "options",
     "noDataExpression": true,
     "options": [
       {
-        "name": "Create Post Draft",
-        "value": "create_post_draft",
-        "description": "Save supplied slide copy as an editable carousel with placeholder backgrounds. No AI generation, rendering, scheduling, publishing or credit spending. Reuse requestId only to retry the same draft",
-        "action": "Create Post Draft in Postraid"
-      },
-      {
-        "name": "Get Post",
-        "value": "get_post",
-        "description": "Read a saved content piece owned by your account, with its editor URL. Does not query social provider credentials or publish",
-        "action": "Get Post in Postraid"
-      },
-      {
         "name": "Get Profile",
         "value": "get_profile",
         "description": "Read the signed-in customer's own Postraid account profile. Does not search for or identify other people",
         "action": "Get Profile in Postraid"
-      },
+      }
+    ],
+    "default": "get_profile",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "account"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
       {
         "name": "List Brands",
         "value": "list_brands",
@@ -36,7 +65,58 @@
         "action": "List Posts in Postraid"
       }
     ],
-    "default": "get_profile"
+    "default": "list_brands",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "brands"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Get Post",
+        "value": "get_post",
+        "description": "Read a saved content piece owned by your account, with its editor URL. Does not query social provider credentials or publish",
+        "action": "Get Post in Postraid"
+      }
+    ],
+    "default": "get_post",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "posts"
+        ]
+      }
+    }
+  },
+  {
+    "displayName": "Operation",
+    "name": "operation",
+    "type": "options",
+    "noDataExpression": true,
+    "options": [
+      {
+        "name": "Create Post Draft",
+        "value": "create_post_draft",
+        "description": "Save supplied slide copy as an editable carousel with placeholder backgrounds. No AI generation, rendering, scheduling, publishing or credit spending. Reuse requestId only to retry the same draft",
+        "action": "Create Post Draft in Postraid"
+      }
+    ],
+    "default": "create_post_draft",
+    "displayOptions": {
+      "show": {
+        "resource": [
+          "post-drafts"
+        ]
+      }
+    }
   },
   {
     "displayName": "This operation changes data or may use account credits. Review the inputs and the product permissions before running this workflow.",
@@ -47,6 +127,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     }
@@ -61,6 +144,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     }
@@ -76,6 +162,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     }
@@ -91,6 +180,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     }
@@ -106,6 +198,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     }
@@ -120,6 +215,9 @@
       "show": {
         "operation": [
           "create_post_draft"
+        ],
+        "resource": [
+          "post-drafts"
         ]
       }
     },
@@ -151,6 +249,9 @@
       "show": {
         "operation": [
           "get_post"
+        ],
+        "resource": [
+          "posts"
         ]
       }
     }
@@ -165,6 +266,9 @@
       "show": {
         "operation": [
           "list_brands"
+        ],
+        "resource": [
+          "brands"
         ]
       }
     },
@@ -193,6 +297,9 @@
       "show": {
         "operation": [
           "list_posts"
+        ],
+        "resource": [
+          "brands"
         ]
       }
     },
