@@ -1,187 +1,179 @@
 [
-  {
-    "name": "create_post_draft",
-    "title": "Save a carousel draft",
-    "description": "Save supplied slide copy as an editable carousel with placeholder backgrounds. No AI generation, rendering, scheduling, publishing or credit spending. Reuse requestId only to retry the same draft.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "requestId": {
-          "type": "string",
-          "format": "uuid"
-        },
-        "brandId": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "default"
-            },
-            {
-              "type": "string",
-              "format": "uuid"
-            }
-          ],
-          "default": "default"
-        },
-        "title": {
-          "type": "string",
-          "minLength": 1,
-          "maxLength": 160
-        },
-        "slides": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "hook": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 160
-              },
-              "body": {
-                "type": "string",
-                "maxLength": 1000,
-                "default": ""
-              }
-            },
-            "required": [
-              "hook"
-            ],
-            "additionalProperties": false
-          },
-          "minItems": 1,
-          "maxItems": 10
-        },
-        "hashtags": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "maxLength": 60
-          },
-          "maxItems": 20,
-          "default": []
-        }
-      },
-      "required": [
-        "requestId",
-        "title",
-        "slides"
-      ],
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "Save a carousel draft",
-      "readOnlyHint": false,
-      "destructiveHint": false,
-      "idempotentHint": false,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "get_post",
-    "title": "Read saved content",
-    "description": "Read a saved content piece owned by your account, with its editor URL. Does not query social provider credentials or publish.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "postId": {
-          "type": "string",
-          "format": "uuid"
-        }
-      },
-      "required": [
-        "postId"
-      ],
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "Read saved content",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "get_profile",
-    "title": "Read your Postraid profile",
-    "description": "Read the signed-in customer's own Postraid account profile. Does not search for or identify other people.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {},
-      "additionalProperties": false
-    },
-    "annotations": {
-      "title": "Read your Postraid profile",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "list_brands",
-    "title": "List your brands",
-    "description": "List brands in your own Postraid workspace. Team workspaces are not included. Use the returned brand ID for content tools.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "offset": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 10000,
-          "default": 0
-        }
-      },
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "List your brands",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  },
-  {
-    "name": "list_posts",
-    "title": "List saved content",
-    "description": "Browse saved content pieces for a brand in your own workspace. These are drafts or library items; reaction=published is a local marker, not independent proof of provider delivery.",
-    "inputSchema": {
-      "type": "object",
-      "properties": {
-        "brandId": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "default"
-            },
-            {
-              "type": "string",
-              "format": "uuid"
-            }
-          ],
-          "default": "default"
-        },
-        "offset": {
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 10000,
-          "default": 0
-        }
-      },
-      "additionalProperties": false,
-      "$schema": "http://json-schema.org/draft-07/schema#"
-    },
-    "annotations": {
-      "title": "List saved content",
-      "readOnlyHint": true,
-      "destructiveHint": false,
-      "idempotentHint": true,
-      "openWorldHint": false
-    }
-  }
+	{
+		"name": "create_post_draft",
+		"title": "Save a carousel draft",
+		"description": "Save supplied slide copy as an editable carousel with placeholder backgrounds. No AI generation, rendering, scheduling, publishing or credit spending. Reuse requestId only to retry the same draft.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"requestId": {
+					"type": "string",
+					"format": "uuid"
+				},
+				"brandId": {
+					"anyOf": [
+						{
+							"type": "string",
+							"const": "default"
+						},
+						{
+							"type": "string",
+							"format": "uuid"
+						}
+					],
+					"default": "default"
+				},
+				"title": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 160
+				},
+				"slides": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"hook": {
+								"type": "string",
+								"minLength": 1,
+								"maxLength": 160
+							},
+							"body": {
+								"type": "string",
+								"maxLength": 1000,
+								"default": ""
+							}
+						},
+						"required": ["hook"],
+						"additionalProperties": false
+					},
+					"minItems": 1,
+					"maxItems": 10
+				},
+				"hashtags": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"maxLength": 60
+					},
+					"maxItems": 20,
+					"default": []
+				}
+			},
+			"required": ["requestId", "title", "slides"],
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "Save a carousel draft",
+			"readOnlyHint": false,
+			"destructiveHint": false,
+			"idempotentHint": false,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "get_post",
+		"title": "Read saved content",
+		"description": "Read a saved content piece owned by your account, with its editor URL. Does not query social provider credentials or publish.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"postId": {
+					"type": "string",
+					"format": "uuid"
+				}
+			},
+			"required": ["postId"],
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "Read saved content",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "get_profile",
+		"title": "Read your Postraid profile",
+		"description": "Read the signed-in customer's own Postraid account profile. Does not search for or identify other people.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {},
+			"additionalProperties": false
+		},
+		"annotations": {
+			"title": "Read your Postraid profile",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "list_brands",
+		"title": "List your brands",
+		"description": "List brands in your own Postraid workspace. Team workspaces are not included. Use the returned brand ID for content tools.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"offset": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 10000,
+					"default": 0
+				}
+			},
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "List your brands",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	},
+	{
+		"name": "list_posts",
+		"title": "List saved content",
+		"description": "Browse saved content pieces for a brand in your own workspace. These are drafts or library items; reaction=published is a local marker, not independent proof of provider delivery.",
+		"inputSchema": {
+			"type": "object",
+			"properties": {
+				"brandId": {
+					"anyOf": [
+						{
+							"type": "string",
+							"const": "default"
+						},
+						{
+							"type": "string",
+							"format": "uuid"
+						}
+					],
+					"default": "default"
+				},
+				"offset": {
+					"type": "integer",
+					"minimum": 0,
+					"maximum": 10000,
+					"default": 0
+				}
+			},
+			"additionalProperties": false,
+			"$schema": "http://json-schema.org/draft-07/schema#"
+		},
+		"annotations": {
+			"title": "List saved content",
+			"readOnlyHint": true,
+			"destructiveHint": false,
+			"idempotentHint": true,
+			"openWorldHint": false
+		}
+	}
 ]

@@ -1,22 +1,22 @@
 {
-  "get_profile": {
-    "method": "GET",
-    "path": "/v1/account"
-  },
-  "list_brands": {
-    "method": "GET",
-    "path": "/v1/brands"
-  },
-  "list_posts": {
-    "method": "GET",
-    "path": "/v1/brands/:brandId/posts"
-  },
-  "get_post": {
-    "method": "GET",
-    "path": "/v1/posts/:postId"
-  },
-  "create_post_draft": {
-    "method": "POST",
-    "path": "/v1/post-drafts"
-  }
+	"get_profile": {
+		"method": "GET",
+		"path": "/v1/account"
+	},
+	"list_brands": {
+		"method": "GET",
+		"path": "/v1/brands"
+	},
+	"list_posts": {
+		"method": "GET",
+		"path": "/v1/brands/:brandId/posts"
+	},
+	"get_post": {
+		"method": "GET",
+		"path": "/v1/posts/:postId"
+	},
+	"create_post_draft": {
+		"method": "POST",
+		"path": "/v1/post-drafts"
+	}
 }
